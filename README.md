@@ -12,7 +12,7 @@ cd cardimg-upload
 npm install
 ```
 
-Uses the BSV wallet skill's wallet at `~/.openclaw/bsv-wallet.json`. This module does not create or manage wallets — that's the BSV wallet skill's job.
+Uses the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill) wallet at `~/.openclaw/bsv-wallet.json`. This module does not create or manage wallets — that's the BSV wallet skill's job.
 
 ## Usage
 

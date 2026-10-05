@@ -17,7 +17,7 @@ No metadata. No version byte. Image-only. The SHA256 of the image bytes IS the i
 
 ## Setup
 
-This skill uses the BSV wallet skill's wallet at `~/.openclaw/bsv-wallet.json`. It does not manage wallets — that's the BSV wallet skill's job.
+This skill uses the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill) wallet at `~/.openclaw/bsv-wallet.json`. It does not manage wallets — that's the BSV wallet skill's job.
 
 ## Upload a card scan
 
@@ -75,6 +75,6 @@ This module is one piece of the CARDIMG ecosystem:
 - **cardimg-upload** (this) — upload scans on-chain
 - **cardimg indexer** — index all CARDIMG txs from anyone
 - **cardimg viewer** — view indexed card images
-- **BSV wallet skill** — manage the wallet that funds uploads
+- **[BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill)** — manage the wallet that funds uploads
 
 Each is independent. Any agent can use any of them. The chain is the glue.
