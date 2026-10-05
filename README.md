@@ -1,19 +1,57 @@
-# Trading Card Image Uploader for OpenClaw
+# cardimg-upload
 
-Upload trading card scan images to the BSV blockchain — permanently, on-chain, under the CARDIMG protocol.
+Permissionless CARDIMG protocol uploader for BSV.
 
-- **Permissionless** — No server, no API key, no account. Anyone with a BSV wallet can upload
-- **Image-only** — No metadata on-chain. SHA256 of image bytes IS the identity
-- **Requires** the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill)
+Uploads card scan images to the BSV blockchain as `OP_FALSE OP_RETURN "CARDIMG" <image_data>` transactions. No metadata, no server, no state — just image bytes on-chain.
 
-## Composability
+## Install
 
-Part of the CARDIMG ecosystem:
+```bash
+git clone https://github.com/axiemaid/cardimg-upload.git
+cd cardimg-upload
+npm install
+```
 
-- **Trading Card Image Uploader** (this) — upload scans on-chain
-- **CARDIMG indexer** — index all CARDIMG transactions from anyone
-- **CARDIMG viewer** — view indexed card images
-- **[BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill)** — create and fund the wallet
+Requires a BSV wallet at `~/.openclaw/bsv-wallet.json`. To create and fund one, use the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill).
+
+## Usage
+
+### CLI
+
+```bash
+node scripts/upload.cjs card.png
+node scripts/upload.cjs card.png --wallet /custom/wallet.json
+node scripts/upload.cjs card.png --tx   # dry run, show hex
+```
+
+### Library
+
+```javascript
+const { uploadCardImg } = require('./lib/cardimg.js')
+
+const { txid, hash, size, fee } = await uploadCardImg(
+  'card.png',
+  '~/.openclaw/bsv-wallet.json'
+)
+```
+
+## Protocol
+
+```
+OP_FALSE OP_RETURN "CARDIMG" <image_data>
+```
+
+- **Identity:** SHA256 of image bytes
+- **No metadata:** Card ID, condition, price — all application layer
+- **No chunking:** BSV accepts large OP_RETURN outputs
+- **Permissionless:** Anyone with a BSV wallet can upload
+
+## What This Is Not
+
+- Not an indexer (use the CARDIMG indexer)
+- Not a viewer (use the CARDIMG viewer)
+- No wallet creation or funding (see the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill))
+- Not a server (CLI + library only)
 
 ## License
 
