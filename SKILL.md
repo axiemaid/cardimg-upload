@@ -17,7 +17,7 @@ No metadata. No version byte. Image-only. The SHA256 of the image bytes IS the i
 
 ## Setup
 
-This skill uses the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill) wallet at `~/.openclaw/bsv-wallet.json`. It does not manage wallets — that's the BSV wallet skill's job.
+Requires a BSV wallet at `~/.openclaw/bsv-wallet.json`. To create and fund one, use the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill).
 
 ## Upload a card scan
 
@@ -43,7 +43,7 @@ Options:
 - No indexing (use the CARDIMG indexer)
 - No viewing (use the CARDIMG viewer)
 - No metadata (protocol is image-only)
-- No wallet management (use the BSV wallet skill)
+- No wallet creation or funding (see the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill))
 - No local state (broadcast and return)
 
 ## Output

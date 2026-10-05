@@ -12,7 +12,7 @@ cd cardimg-upload
 npm install
 ```
 
-Uses the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill) wallet at `~/.openclaw/bsv-wallet.json`. This module does not create or manage wallets — that's the BSV wallet skill's job.
+Requires a BSV wallet at `~/.openclaw/bsv-wallet.json`. To create and fund one, use the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill).
 
 ## Usage
 
@@ -50,7 +50,7 @@ OP_FALSE OP_RETURN "CARDIMG" <image_data>
 
 - Not an indexer (use the CARDIMG indexer)
 - Not a viewer (use the CARDIMG viewer)
-- Not a wallet manager (use the BSV wallet skill)
+- No wallet creation or funding (see the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill))
 - Not a server (CLI + library only)
 
 ## License
