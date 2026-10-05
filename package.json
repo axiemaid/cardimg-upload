@@ -1,0 +1,12 @@
+{
+  "name": "cardimg-upload",
+  "version": "1.0.0",
+  "description": "Permissionless CARDIMG protocol uploader — upload card scans to BSV on-chain",
+  "main": "lib/cardimg.js",
+  "scripts": {
+    "start": "node scripts/upload.cjs"
+  },
+  "dependencies": {
+    "bsv": "^1.5.6"
+  }
+}
