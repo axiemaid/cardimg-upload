@@ -45,6 +45,7 @@ OP_FALSE OP_RETURN "CARDIMG" <image_data>
 - **No metadata:** Card ID, condition, price — all application layer
 - **No chunking:** BSV accepts large OP_RETURN outputs
 - **Permissionless:** Anyone with a BSV wallet can upload
+- **Broadcast:** Uses [WhatsOnChain](https://whatsonchain.com) API for UTXO fetching and transaction broadcast
 
 ## What This Is Not
 
