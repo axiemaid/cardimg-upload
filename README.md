@@ -1,57 +1,43 @@
 # Trading Card Image Uploader for OpenClaw
 
-Permissionless CARDIMG protocol uploader for BSV.
+A skill that lets your OpenClaw agent upload trading card scan images to the BSV blockchain — permanently, on-chain, under the CARDIMG protocol.
 
-Uploads card scan images to the BSV blockchain as `OP_FALSE OP_RETURN "CARDIMG" <image_data>` transactions. No metadata, no server, no state — just image bytes on-chain.
+- **On-chain uploads** — Card scans are embedded as `OP_FALSE OP_RETURN "CARDIMG" <image_data>` transactions
 
-## Install
+- **Permissionless** — Anyone with a BSV wallet can upload. No server, no API key, no account
 
-```bash
-git clone https://github.com/axiemaid/cardimg-upload.git
-cd cardimg-upload
-npm install
-```
+- **Image-only protocol** — No metadata on-chain. Card ID, condition, price — all application layer
 
-Requires a BSV wallet at `~/.openclaw/bsv-wallet.json`. To create and fund one, use the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill).
+- **SHA256 identity** — The hash of the image bytes IS the identity. Exact match, data integrity
 
-## Usage
+- **Uses the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill)** — Requires a funded BSV wallet at `~/.openclaw/bsv-wallet.json`
 
-### CLI
+Tell your OpenClaw agent:
 
-```bash
-node scripts/upload.cjs card.png
-node scripts/upload.cjs card.png --wallet /custom/wallet.json
-node scripts/upload.cjs card.png --tx   # dry run, show hex
-```
+Install the skill from https://github.com/axiemaid/cardimg-upload
 
-### Library
+Once installed, just talk to your agent:
 
-```javascript
-const { uploadCardImg } = require('./lib/cardimg.js')
+- "Upload this card scan to BSV"
+- "Upload card.png to the CARDIMG protocol"
+- "Upload this card image and show me the transaction"
 
-const { txid, hash, size, fee } = await uploadCardImg(
-  'card.png',
-  '~/.openclaw/bsv-wallet.json'
-)
-```
-
-## Protocol
-
-```
-OP_FALSE OP_RETURN "CARDIMG" <image_data>
-```
+- **Protocol:** `OP_FALSE OP_RETURN "CARDIMG" <image_data>` — no version byte, no metadata, no chunking
 
 - **Identity:** SHA256 of image bytes
-- **No metadata:** Card ID, condition, price — all application layer
-- **No chunking:** BSV accepts large OP_RETURN outputs
-- **Permissionless:** Anyone with a BSV wallet can upload
 
-## What This Is Not
+- **Cost:** ~0.5 sats/byte (~$0.10 for 500KB, ~$0.40 for 2MB)
 
-- Not an indexer (use the CARDIMG indexer)
-- Not a viewer (use the CARDIMG viewer)
-- No wallet creation or funding (see the [BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill))
-- Not a server (CLI + library only)
+- **API:** WhatsOnChain mainnet for UTXO fetching and broadcast
+
+## Composability
+
+Part of the CARDIMG ecosystem:
+
+- **Trading Card Image Uploader** (this) — upload scans on-chain
+- **CARDIMG indexer** — index all CARDIMG transactions from anyone
+- **CARDIMG viewer** — view indexed card images
+- **[BSV wallet skill](https://github.com/axiemaid/bsv-openclaw-skill)** — create and fund the wallet
 
 ## License
 
