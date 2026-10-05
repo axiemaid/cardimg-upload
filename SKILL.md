@@ -17,18 +17,7 @@ No metadata. No version byte. Image-only. The SHA256 of the image bytes IS the i
 
 ## Setup
 
-Requires the `bsv` npm package (auto-installs). Uses the BSV wallet skill's wallet at `~/.openclaw/bsv-wallet.json`.
-
-### Check wallet exists
-
-```bash
-node scripts/upload.cjs --help
-```
-
-If wallet is missing, initialize it first via the BSV wallet skill:
-```bash
-node scripts/wallet.cjs init   # from bsv-skill
-```
+This skill uses the BSV wallet skill's wallet at `~/.openclaw/bsv-wallet.json`. It does not manage wallets — that's the BSV wallet skill's job.
 
 ## Upload a card scan
 
@@ -43,7 +32,7 @@ Options:
 ## What it does
 
 1. Loads image bytes from file
-2. Loads BSV wallet (your wallet, your keys)
+2. Loads BSV wallet (via BSV wallet skill's wallet format)
 3. Fetches UTXOs from WhatsOnChain
 4. Builds `OP_FALSE OP_RETURN "CARDIMG" <image_data>` transaction
 5. Signs and broadcasts to BSV mainnet

@@ -12,7 +12,7 @@ cd cardimg-upload
 npm install
 ```
 
-Requires a BSV wallet JSON file at `~/.openclaw/bsv-wallet.json` (or pass `--wallet <path>`).
+Uses the BSV wallet skill's wallet format (`~/.openclaw/bsv-wallet.json`). Wallet management is handled by the BSV wallet skill — this module just uses whatever wallet you give it.
 
 ## Usage
 
