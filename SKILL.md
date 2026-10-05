@@ -3,7 +3,7 @@ name: cardimg-upload
 description: Upload card scan images to BSV on-chain under the CARDIMG protocol
 ---
 
-# CARDIMG Upload Skill
+# Trading Card Image Uploader for OpenClaw
 
 Upload card scan images to the BSV blockchain under the CARDIMG protocol.
 

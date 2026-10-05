@@ -1,4 +1,4 @@
-# cardimg-upload
+# Trading Card Image Uploader for OpenClaw
 
 Permissionless CARDIMG protocol uploader for BSV.
 
