@@ -1,3 +1,5 @@
+input/
+rejected/
+screen-log.jsonl
+uploaded-codes.json
 node_modules/
-.DS_Store
-*.log
